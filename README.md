@@ -46,6 +46,9 @@ FastAPI provides an automatically generated document you can view in the browser
 ```
 
 length: int or numeric string with a value >=8 and <=60. Defines length of generated password
+
 capitals: bool. Toggles presence of capitals in generated password
+
 digits: bool. Toggles presence of digits in generated password
+
 symbols: bool. toggles presence of symbols in generated password
