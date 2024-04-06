@@ -32,7 +32,6 @@ You can test the core functionality of the API using POSTMAN. To make POST calls
 ### /generate-password
 ![Example of a correct query made to the API. There are no parameters in the url and instead a json object is defined in the body of the request, containing arguments for the password to be generated](./media/readmeMedia/exampleQuery.png)
 
-
 ## Secondary Functionality
 The API also integrates a third party API "Dog API". Two GET endpoints exist for interacting with this API and can be tested from the browser.
 
