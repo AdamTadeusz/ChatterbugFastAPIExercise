@@ -5,6 +5,7 @@
 ## Pip libraries
 - fastapi 0.110.1
 - uvicorn[standard] 0.29.0
+- requests==2.31.0
 
 (Python and library versions are versions used during development and testing)
 
