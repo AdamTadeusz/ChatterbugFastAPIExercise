@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException, Response
 from pydantic import BaseModel
-from PIL import Image
-import passwordGenerator.passwordGenerator as new_password
 import requests
+import passwordGenerator.passwordGenerator as new_password
+import dogAPI.dog as dog
 
 class Pass_Args(BaseModel):
     length: int = 20
@@ -30,26 +30,8 @@ def generate_password(pass_args: Pass_Args):
 
 @app.get("/dog-breed-list")
 def dog_breed_list():
-    request_url = "https://dog.ceo/api/breeds/list/all"
-    try:
-        request_return = requests.get(request_url).json()
-        return request_return
-    except requests.exceptions.RequestException as e:
-        return {"message": "An exception has occured", "status": "error"}
+    return dog.dog_breed_list()
 
 @app.get("/dog-picture")
 def dog_picture(breed: str=None, sub_breed: str=None):
-    request_url = "https://dog.ceo/api/breeds/image/random"
-    if (not sub_breed and breed):
-        request_url = "https://dog.ceo/api/breed/{0}/images/random".format(breed)
-    if (sub_breed and breed):
-        request_url = "https://dog.ceo/api/breed/{0}/{1}/images/random".format(breed, sub_breed)
-
-    # get url of random image
-    try:
-        request_return = requests.get(request_url).json()
-        image_url = request_return["message"]
-        data = "<!DOCTYPE html><html><body><img src='{0}' alt='{0}'></body></html>".format(image_url)
-        return Response(content=data)
-    except requests.exceptions.RequestException as e:
-        return {"message": "An exception has occured", "status": "error"}
+    return dog.dog_picture(breed, sub_breed)
