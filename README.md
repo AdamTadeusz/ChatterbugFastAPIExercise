@@ -32,20 +32,3 @@ See the documentation for a list of all endpoints
 # Documentation
 
 FastAPI provides an automatically generated document you can view in the browser by visiting the "/docs" and "/redoc" endpoints while the server is running
-
-## Endpoints
-
-```/generate_password``` takes a json object sent in the body of the request. Example object is
-
-```
-{
-    "length": 20,
-    "capitals": true,
-    "digits": true,
-    "symbols": true
-}
-length: int or numeric string with a value >=8 and <=60. Defines length of generated password
-capitals: bool. Defines presence of capitals in generated password
-digits: bool. Defines presence of digits in generated password
-symbols: bool. Defines presence of symbols in generated password
-```
